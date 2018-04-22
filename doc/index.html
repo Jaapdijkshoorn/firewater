@@ -53,7 +53,7 @@ License</a>.
 </ul></li>
 </ul>
 
-<h2>1. What is firewater?</h2>
+<h2>1. What is firewater? <a name="what-is-firewater"></a></h2>
 
 <p>firewater is a(nother) host-based firewall configuration tool.
 It offers a simple way to compose firewall policies from the command prompt,
@@ -69,7 +69,7 @@ with native commands to the underlying system-specific firewall.</p>
 but is extensible through its modular architecture so that it may support
 more firewalling systems in the future.</p>
 
-<h2>2. Installing firewater</h2>
+<h2>2. Installing firewater <a name="installing-firewater"></a></h2>
 
 <p>For installing the software, in short, do the following (as root):</p>
 
@@ -81,7 +81,7 @@ enable it at boot time.</p>
 
 <p>Review and edit <code>/etc/default/firewater</code> for some basic settings.</p>
 
-<h2>2.1 Creating a package</h2>
+<h2>2.1 Creating a package <a name="creating-a-package"></a></h2>
 
 <p>On Redhat, CentOS, SUSE and other RPM based distributions you may
 create a package by using distutils. You can create the package by
@@ -100,7 +100,7 @@ running the following command:</p>
 <pre><code>$ python ./setup.py bdist
 </code></pre>
 
-<h2>2.2 Enabling firewater at boot time</h2>
+<h2>2.2 Enabling firewater at boot time <a name="enabling-firewater-at-boot-time"></a></h2>
 
 <p>Installing firewater <em>does not</em> start the firewall, nor enable it
 at boot time. The reason for this is that you must first edit
@@ -133,7 +133,7 @@ has been enabled in the boot process.</p>
 # systemctl start firewater.service
 </code></pre>
 
-<h2>3. Using firewater</h2>
+<h2>3. Using firewater <a name="using-firewater"></a></h2>
 
 <p>firewater is an application that acts as a translator. It translates firewater
 input rules into statements that the native firewall can understand.
@@ -163,7 +163,7 @@ commit.</p>
 <p>Remember: Whenever the ruleset is changed, it must be tested and committed,
 otherwise the rules are not active.</p>
 
-<h2>4. Input file syntax</h2>
+<h2>4. Input file syntax <a name="input-file-syntax"></a></h2>
 
 <p>As input, firewater accepts text files. A text file contains a firewater rule
 set. Firewater rule sets are line based, and every line starts with a keyword.
@@ -173,7 +173,7 @@ the end of a line.</p>
 
 <p>The following subsections explain the keywords of the syntax of the input.</p>
 
-<h2>4.1 Example configuration</h2>
+<h2>4.1 Example configuration <a name="example-configuration"></a></h2>
 
 <p>For those who learn by example, here is an example configuration:</p>
 
@@ -223,7 +223,7 @@ verbatim
 end
 </code></pre>
 
-<h2>4.2 Interfaces</h2>
+<h2>4.2 Interfaces <a name="interfaces"></a></h2>
 
 <p>Firewalls, and thus firewater too, work with interfaces. An interface is the
 software representation of the hardware network port on your network card.
@@ -254,7 +254,7 @@ anti-spoofing rules which work on an interface named "public".</p>
 
 <p>It is not mandatory to use <code>iface</code> definitions, but they make life easier.</p>
 
-<h2>4.3 Networks, ranges, hosts</h2>
+<h2>4.3 Networks, ranges, hosts <a name="networks-ranges-hosts"></a></h2>
 
 <p>TCP/IP networking revolves around IP addresses. In firewater you can define
 logical names for IP adresses or for ranges of IP addresses.</p>
@@ -280,7 +280,7 @@ maintaining your ruleset easier.</p>
 
 <p>Although firewater understands IPv6 addresses, IPv6 is not really supported.</p>
 
-<h2>4.4 Logical groups</h2>
+<h2>4.4 Logical groups <a name="logical-groups"></a></h2>
 
 <p>Now that we have defined multiple hosts and network ranges, you can group them
 together like this:</p>
@@ -298,7 +298,7 @@ group good-hosts  grandma, grandpa, localhost
 <p>As you can see, groups can also be part of other groups.
 If you use groups in a clever way, it will be easy to maintain a ruleset.</p>
 
-<h2>4.5 Services</h2>
+<h2>4.5 Services <a name="services"></a></h2>
 
 <p>Network services use well-known port numbers. For example, the SSH service
 uses TCP port 22. The SSH daemon listens on TCP port 22 for connections,
@@ -321,7 +321,7 @@ service globus-range tcp 20000-25000
 <p>There is no need to declare any services in firewater that already exist in
 <code>/etc/services</code>.</p>
 
-<h2>4.6 Default policy</h2>
+<h2>4.6 Default policy <a name="default-policy"></a></h2>
 
 <p>Firewalls deal with packets of network traffic coming into your computer via
 the network interface and going out of your computer through the network
@@ -352,7 +352,7 @@ chain incoming
 
 <p>Remember to set the current chain (!) before adding new rules.</p>
 
-<h2>4.7 Rules: allow or deny</h2>
+<h2>4.7 Rules: allow or deny <a name="rules-allow-or-deny"></a></h2>
 
 <p>Firewalls are all about allowing traffic to go through or not. In a rule you
 specify where a packet comes from, what its destination may be, what service
@@ -380,7 +380,7 @@ allow tcp from host1.servers.net to 123.123.12.34 port 80
 It is allowed to omit the interface, in which case the rule will apply
 to all interfaces.</p>
 
-<h2>4.8 Conditional statements: Using ifdefs</h2>
+<h2>4.8 Conditional statements: Using ifdefs <a name="conditional-statements-using-ifdefs"></a></h2>
 
 <p>firewater has a mechanism for letting you to choose whether to include a block
 of rules or not. This is convenient for a number of reasons:</p>
@@ -419,7 +419,7 @@ endif
 <code>ifdef</code> statements do not start with a <code>#</code>-token because in firewater those
 are treated as comments.</p>
 
-<h2>4.9 Injecting native firewall commands</h2>
+<h2>4.9 Injecting native firewall commands <a name="injecting-native-firewall-commands"></a></h2>
 
 <p>firewater translates <em>firewater</em> rules into statements for the target
 firewalling tool. The default target firewalling tool is Linux <code>iptables</code>.
@@ -439,7 +439,7 @@ end
 <p>This example shows how <code>echo</code> and <code>verbatim</code> can be used to inject explicit
 <code>iptables</code> commands into firewater's output.</p>
 
-<h2>4.10 Standard includes</h2>
+<h2>4.10 Standard includes <a name="standard-includes"></a></h2>
 
 <p>Using the <code>include</code> keyword, it is possible to include other ruleset files:</p>
 
@@ -457,7 +457,7 @@ under <code>/etc/firewater.d/</code>. Provided are standard rules like for allow
 traffic on the loopback interface, rules that block spoofing attempts,
 rules for logging to syslog, and more.</p>
 
-<h2>4.11 List of all keywords</h2>
+<h2>4.11 List of all keywords <a name="list-of-all-keywords"></a></h2>
 
 <p><code>allow [tcp|udp|ip|icmp|gre] [from SRC [port SERVICE]] [to DEST [port SERVICE]]
 [on [interface|iface] IFACE [interface]]</code>

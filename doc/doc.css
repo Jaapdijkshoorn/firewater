@@ -146,44 +146,14 @@ pre > code {
 	border: solid 1px #000;
 	background-color: #eee;
 	font-family: courier, monospace;
-	font-size: .95em;
-	margin: 1em auto 1em auto;
+	margin: 1em;
 	padding: 1em;
-	padding-left: 1.5em;
+	display: block;
 }
 
-.example {
-	border: solid 1px #000;
+code {
 	background-color: #eee;
-	font-family: menlo, courier, monospace;
-	font-size: .95em;
-	margin: 1em auto 1em auto;
-	padding: 1em;
-	padding-left: 1.5em;
-}
-
-.note {
-	border: dashed 1px #aaa;
-	background-color: #eee;
-	margin: 1em auto 1em auto;
-	padding: 1em;
-}
-
-.system {
-	font-family: menlo, courier, monospace;
-	font-size: .95em;
-	word-break: keep-all;
-}
-
-.cmd {
-	font-family: menlo, courier, monospace;
-	font-size: .95em;
-	word-break: keep-all;
-}
-
-.path {
-	font-family: menlo, courier, monospace;
-	font-size: .95em;
+	font-family: courier, monospace;
 }
 
 .vtab {

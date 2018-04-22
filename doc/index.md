@@ -17,7 +17,7 @@
  - [List of all keywords](#list-of-all-keywords)
 
 
-1. What is firewater?
+1. What is firewater? <a name="what-is-firewater"></a>
 ---------------------
 firewater is a(nother) host-based firewall configuration tool.
 It offers a simple way to compose firewall policies from the command prompt,
@@ -34,7 +34,7 @@ but is extensible through its modular architecture so that it may support
 more firewalling systems in the future.
 
 
-2. Installing firewater
+2. Installing firewater <a name="installing-firewater"></a>
 -----------------------
 For installing the software, in short, do the following (as root):
 
@@ -46,7 +46,7 @@ enable it at boot time.
 Review and edit `/etc/default/firewater` for some basic settings.
 
 
-2.1 Creating a package
+2.1 Creating a package <a name="creating-a-package"></a>
 ----------------------
 On Redhat, CentOS, SUSE and other RPM based distributions you may
 create a package by using distutils. You can create the package by
@@ -63,7 +63,7 @@ You can also create a `.tar.gz` based install:
     $ python ./setup.py bdist
 
 
-2.2 Enabling firewater at boot time
+2.2 Enabling firewater at boot time <a name="enabling-firewater-at-boot-time"></a>
 -----------------------------------
 Installing firewater _does not_ start the firewall, nor enable it
 at boot time. The reason for this is that you must first edit
@@ -94,7 +94,7 @@ On systems that use systemd:
     # systemctl start firewater.service
 
 
-3. Using firewater
+3. Using firewater <a name="using-firewater"></a>
 ------------------
 firewater is an application that acts as a translator. It translates firewater
 input rules into statements that the native firewall can understand.
@@ -124,7 +124,7 @@ Remember: Whenever the ruleset is changed, it must be tested and committed,
 otherwise the rules are not active.
 
 
-4. Input file syntax
+4. Input file syntax <a name="input-file-syntax"></a>
 --------------------
 As input, firewater accepts text files. A text file contains a firewater rule
 set. Firewater rule sets are line based, and every line starts with a keyword.
@@ -135,7 +135,7 @@ the end of a line.
 The following subsections explain the keywords of the syntax of the input.
 
 
-4.1 Example configuration
+4.1 Example configuration <a name="example-configuration"></a>
 -------------------------
 For those who learn by example, here is an example configuration:
 
@@ -185,7 +185,7 @@ For those who learn by example, here is an example configuration:
     end
 
 
-4.2 Interfaces
+4.2 Interfaces <a name="interfaces"></a>
 --------------
 Firewalls, and thus firewater too, work with interfaces. An interface is the
 software representation of the hardware network port on your network card.
@@ -216,7 +216,7 @@ anti-spoofing rules which work on an interface named "public".
 It is not mandatory to use `iface` definitions, but they make life easier.
 
 
-4.3 Networks, ranges, hosts
+4.3 Networks, ranges, hosts <a name="networks-ranges-hosts"></a>
 ---------------------------
 TCP/IP networking revolves around IP addresses. In firewater you can define
 logical names for IP adresses or for ranges of IP addresses.
@@ -242,7 +242,7 @@ maintaining your ruleset easier.
 Although firewater understands IPv6 addresses, IPv6 is not really supported.
 
 
-4.4 Logical groups
+4.4 Logical groups <a name="logical-groups"></a>
 ------------------
 Now that we have defined multiple hosts and network ranges, you can group them
 together like this:
@@ -260,7 +260,7 @@ As you can see, groups can also be part of other groups.
 If you use groups in a clever way, it will be easy to maintain a ruleset.
 
 
-4.5 Services
+4.5 Services <a name="services"></a>
 ------------
 Network services use well-known port numbers. For example, the SSH service
 uses TCP port 22. The SSH daemon listens on TCP port 22 for connections,
@@ -283,7 +283,7 @@ There is no need to declare any services in firewater that already exist in
 `/etc/services`.
 
 
-4.6 Default policy
+4.6 Default policy <a name="default-policy"></a>
 ------------------
 Firewalls deal with packets of network traffic coming into your computer via
 the network interface and going out of your computer through the network
@@ -314,7 +314,7 @@ internet:
 Remember to set the current chain (!) before adding new rules.
 
 
-4.7 Rules: allow or deny
+4.7 Rules: allow or deny <a name="rules-allow-or-deny"></a>
 ------------------------
 Firewalls are all about allowing traffic to go through or not. In a rule you
 specify where a packet comes from, what its destination may be, what service
@@ -342,7 +342,7 @@ It is allowed to omit the interface, in which case the rule will apply
 to all interfaces.
 
 
-4.8 Conditional statements: Using ifdefs
+4.8 Conditional statements: Using ifdefs <a name="conditional-statements-using-ifdefs"></a>
 ----------------------------------------
 firewater has a mechanism for letting you to choose whether to include a block
 of rules or not. This is convenient for a number of reasons:
@@ -379,7 +379,7 @@ they are passed on the command-line using the `-D` parameter.
 are treated as comments.
 
 
-4.9 Injecting native firewall commands
+4.9 Injecting native firewall commands <a name="injecting-native-firewall-commands"></a>
 --------------------------------------
 firewater translates <em>firewater</em> rules into statements for the target
 firewalling tool. The default target firewalling tool is Linux `iptables`.
@@ -399,7 +399,7 @@ This example shows how `echo` and `verbatim` can be used to inject explicit
 `iptables` commands into firewater's output.
 
 
-4.10 Standard includes
+4.10 Standard includes <a name="standard-includes"></a>
 ----------------------
 Using the `include` keyword, it is possible to include other ruleset files:
 
@@ -417,7 +417,7 @@ traffic on the loopback interface, rules that block spoofing attempts,
 rules for logging to syslog, and more.
 
 
-4.11 List of all keywords
+4.11 List of all keywords <a name="list-of-all-keywords"></a>
 -------------------------
 `allow [tcp|udp|ip|icmp|gre] [from SRC [port SERVICE]] [to DEST [port SERVICE]]
 [on [interface|iface] IFACE [interface]]`
