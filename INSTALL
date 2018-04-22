@@ -9,9 +9,7 @@ License.
 
 For installing the software, do the following (as root):
 
-```
     # ./setup.py install
-```
 
 See below for information on how to create a package.
 
@@ -30,13 +28,11 @@ Next, test the ruleset (verify that there are no syntax errors) and
 it must be committed to take effect. The firewall is reloaded when
 committed.
 
-```
     # vim /etc/firewater.rules
 
     # firewater test
 
     # firewater commit
-```
 
 Remember: Whenever the ruleset is changed, it must be tested and committed,
 otherwise the rules are not active.
@@ -49,25 +45,24 @@ been enabled in the boot process.
 
 On systems that use SysV init:
 
-```
     # chkconfig firewater on
-```
+
+    # service firewater status
+    # service firewater start
 
 or
 
-```
     # update-rc.d firewater defaults
 
     # service firewater status
-```
+    # service firewater start
 
 On systems that use systemd:
 
-```
     # systemctl enable firewater.service
 
     # systemctl status -l firewater.service
-```
+    # systemctl start firewater.service
 
 
 == Creating a package ==
@@ -78,9 +73,7 @@ On Redhat, CentOS, SUSE and other RPM based distributions you may
 create a package by using distutils. You can create the package by
 running the following command:
 
-```
     # python ./setup.py bdist_rpm
-```
 
 On most OSes, installing a package does not activate the service.
 You must configure and enable the service otherwise the firewall
