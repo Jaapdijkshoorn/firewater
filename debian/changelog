@@ -1,3 +1,9 @@
+firewater (1.4) stable; urgency=low
+
+  * New upstream release 1.4
+
+ -- Walter de Jong <walter@heiho.net>  Sun, 22 Apr 2018 12:25:04 +0200
+
 firewater (1.2-beta-1) unstable; urgency=low
 
   * New upstream version 1.2-beta
