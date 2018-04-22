@@ -57,7 +57,8 @@ setup(name='firewater',
                     'firewater.d/anti_spoofing.rules',
                     'firewater.d/anti_smurf.rules',
                     'firewater.d/reject_all.rules',
-                    'firewater.d/logging.rules'
+                    'firewater.d/logging.rules',
+                    'firewater.d/log.rules'
                    ]),
                   ('/etc/init.d', ['build/etc/init.d/firewater',]),
                   ('/lib/systemd/system', ['build/lib/systemd/system/firewater.service',]),
