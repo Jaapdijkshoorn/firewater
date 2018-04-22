@@ -23,7 +23,7 @@
 <div>
 <h2 id="whatis">1. What is firewater?</h2>
 <p>
-firewater is a(nother) hostbased firewall configuration tool.
+firewater is a(nother) host-based firewall configuration tool.
 It offers a simple way to compose firewall policies from the command prompt,
 without the need for a GUI.
 </p>
