@@ -11,7 +11,7 @@ Documentation=http://walterdejong.github.io/firewater/doc/index.html
 Type=oneshot
 RemainAfterExit=True
 #EnvironmentFile=-/etc/default/firewater
-ExecStart=/bin/firewater start
+ExecStart=/sbin/firewater start
 ExecReload=/sbin/firewater restart
 ExecStop=/sbin/firewater stop
 
