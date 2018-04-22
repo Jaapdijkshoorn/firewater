@@ -27,7 +27,7 @@ include /etc/firewater.d/allow_established.rules
 allow from internal-network to any port ssh
 
 # let people connect to my BBS
-allow from any to any port my-bbs on interface public
+allow from any to any port my-bbs on public interface
 
 
 ifdef PARENTING
