@@ -15,6 +15,7 @@ service my-bbs 1234
 # NOTE: because a careful example, we don't drop incoming
 chain incoming default policy accept
 chain outgoing default policy accept
+chain incoming
 
 include /etc/firewater.d/allow_loopback.rules 
 ##include /etc/firewater.d/anti_spoofing.rules
