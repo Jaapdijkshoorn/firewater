@@ -10,7 +10,7 @@
 
 '''firewater global variables'''
 
-VERSION = '1.3-beta'
+VERSION = '1.4'
 
 DEBUG = False
 VERBOSE = False

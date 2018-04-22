@@ -1,0 +1,47 @@
+#
+#	example.rules
+#
+
+iface public eth0
+
+network internal-network 192.168.1.0/24
+
+host YouTube youtube.com, vimeo.com, vine.com
+
+
+service my-bbs 1234
+
+
+# NOTE: because a careful example, we don't drop incoming
+chain incoming default policy accept
+chain outgoing default policy accept
+
+include /etc/firewater.d/allow_loopback.rules 
+##include /etc/firewater.d/anti_spoofing.rules
+include /etc/firewater.d/drop_invalid.rules
+include /etc/firewater.d/anti_smurf.rules 
+include /etc/firewater.d/allow_established.rules 
+
+# I can use ssh to log in
+allow from internal-network to any port ssh
+
+# let people connect to my BBS
+allow from any to any port my-bbs on interface public
+
+
+ifdef PARENTING
+chain outgoing
+
+# stop watching them videos
+deny from any to YouTube
+
+chain incoming
+endif
+
+
+include /etc/firewater.d/log.rules
+
+##include /etc/firewater.d/logging.rules
+##include /etc/firewater.d/reject_all.rules
+
+# EOB
